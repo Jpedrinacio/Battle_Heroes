@@ -25,21 +25,24 @@ public class Main {
         System.out.println("Digite a quantidade de Turnos: ");
         int turno = entrada.nextInt();
         batalha1.turnos = turno;
-        int i = 0;
 
-        while (batalha1.turnos > i){
+
+        for (int i = 0; i <= turno; i++){
             System.out.println("Quem vai Atacar?");
             String Atacante = entrada.nextLine();
             if(Atacante.equals("Herói")) {
-                System.out.println("Herói atacou com 80");
-                int defesa = vilain1.defesa - hero1.ataque ;
-                vilain1.vida = vilain1.vida - defesa;
-                System.out.println("Vida do vilão após ataque "+ vilain1.vida );
+                System.out.println("------------------------------------------\n" +
+                        "  Baby_shark utilizou Queixo_Esmagador" +"\n" +
+                        "------------------------------------------");
+                System.out.println(hero1.nome + " atacou com 80");
+                int dano = hero1.ataque - vilain1.defesa ;
+                vilain1.vida = vilain1.vida - dano;
+                System.out.println(vilain1.nome + " está com "+ vilain1.vida + " de vida agora" );
             }
-        else if (Atacante.equals("Vilão")) {
+            else if (Atacante.equals("Vilão")) {
                 System.out.println("Vilão atacou com 75");
-                int defesa = hero1.defesa - vilain1.ataque;
-                hero1.vida = hero1.vida - defesa;
+                int dano = hero1.defesa - vilain1.ataque;
+                hero1.vida = hero1.vida - dano;
                 System.out.println("Vida do herói após ataque "+ hero1.vida );
             }
             else if (Atacante.equals("Suporte")) {
@@ -59,7 +62,7 @@ public class Main {
                 }
 
             }
-            i++;
+
         }
 
         if (hero1.vida > vilain1.vida){
